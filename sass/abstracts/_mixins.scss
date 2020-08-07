@@ -1,0 +1,54 @@
+@mixin clickable-div {
+    cursor: pointer;
+
+    &::selection {
+        background: none;
+    }
+}
+
+@mixin abs-no-margin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin abs-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin color-bg-color($c, $bg-color) {
+    color: $c;
+    background-color: $bg-color;
+}
+
+@mixin media($device-type) {
+
+    @if $device-type == phone {
+        @media (max-width: #{to-em(480)}em) {
+            @content
+        }
+    };
+
+    @if $device-type == tablet {
+        @media (max-width: #{to-em(678)}em) {
+            @content
+        }
+    };
+
+    @if $device-type == tablet-portrait {
+        @media (max-width: #{to-em(960)}em) {
+            @content
+        }
+    };
+
+    @if $device-type == desktop {
+        @media (max-width: #{to-em(1250)}em) {
+            @content
+        }
+    };
+}
